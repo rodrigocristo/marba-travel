@@ -1,0 +1,39 @@
+@import '../styles.scss';
+
+.mat-drawer-sidenav{
+  background-color: #fff;
+  width: 300px;
+}
+
+.mat-sidenav-item{
+  color:rgba(0, 0, 0, 0.85);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.mat-sidenav-item-selected{
+  color:rgb(51, 103, 214);
+  background-color: #3367d624;
+  border-right-style: solid;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.footer{
+    background-color: #212121;
+
+}
+
+.footer-nome-empresa{
+    color: white;
+    font-size: 30px;
+}
+
+.titulo-section{
+    color: #212121;
+    font-size: 40px;
+    font-family: "Raleway";
+    margin: 10px;
+}
