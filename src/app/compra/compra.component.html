@@ -1,0 +1,85 @@
+<div fxLayout="column" fxLayoutGap="10px" style="background-color: lightgray">
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    <mat-toolbar-row fxLayout="row" fxFlex fxLayoutAlign="space-between center" style="color: white">
+      <button mat-button>
+        Marba
+        <mat-icon>flight_takeoff</mat-icon>
+      </button>
+
+      <div fxLayout="row">
+        <button mat-button>
+          <mat-icon>home</mat-icon>
+          Categorias
+        </button>
+        <button mat-button>
+          <mat-icon>local_offer</mat-icon>
+          Ofertas
+        </button>
+        <button mat-button>
+          <mat-icon>flight</mat-icon>
+          Pacotes
+        </button>
+      </div>
+      <div fxLayout="row">
+        <button mat-icon-button>
+          <mat-icon>help</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="95" fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="10px">
+          <mat-card fxFlex fxLayou="row">
+            <div fxFlex fxLayoutAlign="start center">
+              <span class="titulo-section">Ofertas</span>
+            </div>
+            <form fxLayout="column" [formGroup]="formulario">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dataIda">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </form>
+          </mat-card>
+          <mat-card fxFlex>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Berlim</mat-card-title>
+              <mat-card-subtitle>Imperdível</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxNzgEPqgVEX8mMGmUmQYLYHiV9xk2cVsNHSwGbXGkTOYy9U_D"
+              alt="Nova York 58% OFF">
+            <mat-card-content>
+              <p>
+              </p>
+            </mat-card-content>
+            <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+              <button mat-icon-button>
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+              <a [routerLink]="['/compra']" routerLinkActive #rotaAtiva="routerLinkActive" mat-raised-button
+                color="accent">Comprar</a>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
