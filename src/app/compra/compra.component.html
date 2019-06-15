@@ -1,16 +1,12 @@
-<div fxLayout="column" fxLayoutGap="10px" style="background-color: lightgray">
+<div fxLayout="column" style="background-color: lightgray">
   <mat-toolbar color="primary" class="mat-elevation-z4">
     <mat-toolbar-row fxLayout="row" fxFlex fxLayoutAlign="space-between center" style="color: white">
-      <button mat-button>
+      <a mat-button [routerLink]="['/']">
         Marba
         <mat-icon>flight_takeoff</mat-icon>
-      </button>
+      </a>
 
       <div fxLayout="row">
-        <button mat-button>
-          <mat-icon>home</mat-icon>
-          Categorias
-        </button>
         <button mat-button>
           <mat-icon>local_offer</mat-icon>
           Ofertas
@@ -32,19 +28,32 @@
   </mat-toolbar>
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>Lugar</ng-template>
       <div fxLayout="row" fxLayoutAlign="space-around center">
         <div fxFlex="95" fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="10px">
-          <mat-card fxFlex fxLayou="row">
-            <div fxFlex fxLayoutAlign="start center">
-              <span class="titulo-section">Ofertas</span>
+          <mat-card fxFlex="35" fxLayou="row">
+            <div fxLayout="column">
+              <div fxFlex fxLayoutAlign="start center">
+                <span class="titulo-section">Ofertas</span>
+              </div>
+              <form fxLayout="column" [formGroup]="formulario">
+                <div fxFlex fxLayout="row" fxLayoutGap="10px">
+                  <mat-form-field fxFlex>
+                    <input matInput [matDatepicker]="dataIda" placeholder="Data ida" formControlName="dataIda">
+                    <mat-datepicker-toggle matSuffix [for]="dataIda"></mat-datepicker-toggle>
+                    <mat-datepicker #dataIda></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field fxFlex>
+                    <input matInput [matDatepicker]="dataVolta" placeholder="Data volta" formControlName="dataVolta">
+                    <mat-datepicker-toggle matSuffix [for]="dataVolta"></mat-datepicker-toggle>
+                    <mat-datepicker #dataVolta></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <mat-form-field>
+                  <input matInput placeholder="Quantidade pessoas" type="number" formControlName="dataVolta">
+                </mat-form-field>
+              </form>
             </div>
-            <form fxLayout="column" [formGroup]="formulario">
-              <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dataIda">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </form>
           </mat-card>
           <mat-card fxFlex>
             <mat-card-header>
@@ -57,29 +66,180 @@
               alt="Nova York 58% OFF">
             <mat-card-content>
               <p>
+                Berlim é a capital e um dos dezesseis estados da Alemanha. Com uma população de 3,5 milhões dentro de
+                limites da cidade, é a maior cidade do país, e a sétima área urbana mais povoada da União Europeia.
               </p>
             </mat-card-content>
-            <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-              <button mat-icon-button>
-                <mat-icon>favorite_border</mat-icon>
-              </button>
-              <a [routerLink]="['/compra']" routerLinkActive #rotaAtiva="routerLinkActive" mat-raised-button
-                color="accent">Comprar</a>
-            </mat-card-actions>
           </mat-card>
         </div>
       </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel>Quarto</ng-template>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxFlex="95" fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="10px">
+          <mat-card fxFlex fxLayoutGap="10px">
+            <img mat-card-image src="http://static1.eskypartners.com/travelguide/hotel.jpg" alt="Nova York 58% OFF">
+            <img mat-card-image
+              src="https://st3.depositphotos.com/3386033/12540/i/950/depositphotos_125404176-stock-photo-interior-of-a-hotel-bathroom.jpg"
+              alt="Nova York 58% OFF">
 
+          </mat-card>
+          <div fxLayout="column" fxFlex="35" fxLayoutGap="10px">
+            <mat-card fxLayou="row">
+              <div fxLayout="column">
+                <mat-list>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon>ac_unit</mat-icon>
+                    <h4 mat-line>Ar condicionado</h4>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon>wifi</mat-icon>
+                    <h4 mat-line>Wi-Fi</h4>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon>local_dining</mat-icon>
+                    <h4 mat-line>Café da manhã</h4>
+                  </mat-list-item>
+
+                </mat-list>
+
+              </div>
+            </mat-card>
+            <mat-card fxFlex="35" fxLayou="row">
+              <div fxLayout="column">
+                <mat-list>
+                  <mat-list-item>
+                    <h4 mat-line>Ambiente</h4>
+                    <mat-progress-bar [color]="accent" [mode]="determinate" [value]="85" [bufferValue]="100">
+                    </mat-progress-bar>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item>
+                    <h4 mat-line>Serviço</h4>
+                    <mat-progress-bar [color]="accent" [mode]="determinate" [value]="40" [bufferValue]="100">
+                    </mat-progress-bar>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+
+                  <mat-list-item>
+                    <h4 mat-line>Conforto</h4>
+                    <mat-progress-bar [color]="accent" [mode]="determinate" [value]="70" [bufferValue]="100">
+                    </mat-progress-bar>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+
+                  <mat-list-item>
+                    <h4 mat-line>Limpeza</h4>
+                    <mat-progress-bar [color]="accent" [mode]="determinate" [value]="85" [bufferValue]="100">
+                    </mat-progress-bar>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+
+                </mat-list>
+
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+      <ng-template matStepLabel>Voo</ng-template>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="95" fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="10px">
+          <mat-card fxFlex="35" fxLayou="row">
+            <div fxLayout="column">
+              <div fxFlex fxLayoutAlign="start center">
+                <span class="titulo-section">Ofertas</span>
+              </div>
+              <form fxLayout="column" [formGroup]="formulario">
+                <div fxFlex fxLayout="row" fxLayoutGap="10px">
+                  <mat-form-field fxFlex>
+                    <input matInput [matDatepicker]="dataIda2" placeholder="Data ida" formControlName="dataIda">
+                    <mat-datepicker-toggle matSuffix [for]="dataIda2"></mat-datepicker-toggle>
+                    <mat-datepicker #dataIda2></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field fxFlex>
+                    <input matInput [matDatepicker]="dataVolta2" placeholder="Data volta" formControlName="dataVolta">
+                    <mat-datepicker-toggle matSuffix [for]="dataVolta2"></mat-datepicker-toggle>
+                    <mat-datepicker #dataVolta2></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <mat-form-field>
+                  <input matInput placeholder="Quantidade pessoas" type="number" formControlName="dataVolta">
+                </mat-form-field>
+              </form>
+            </div>
+          </mat-card>
+          <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+            <mat-card>
+              <span>Promoções quentes</span>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let voo of voosImperdiveis">
+                  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+                    <mat-icon>airplanemode_active</mat-icon>
+                    <span>{{voo.companhia}}</span>
+                    <span>{{voo.aeroportoIda}}</span>
+                    <span>{{voo.saida}}</span>
+                    <span>{{voo.horarioIda}}</span>
+                    <span>{{voo.horarioChegada}}</span>
+                    <span>{{voo.aeroportoVolta}}</span>
+                  </div>
+
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-card>
+            <mat-card>
+              <span>Outras ofertas</span>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let voo of voos">
+                  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+                    <mat-icon>airplanemode_active</mat-icon>
+                    <span>{{voo.companhia}}</span>
+                    <span>{{voo.aeroportoIda}}</span>
+                    <span>{{voo.saida}}</span>
+                    <span>{{voo.horarioIda}}</span>
+                    <span>{{voo.horarioChegada}}</span>
+                    <span>{{voo.aeroportoVolta}}</span>
+                  </div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-card>
+          </div>
+        </div>
       </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Pagamento</ng-template>
+          <!--Tipo do botão-->
+          <input type="hidden" name="cmd" value="_xclick" />
+       
+          <!--Vendedor e URL de retorno, cancelamento e notificação-->
+          <input type="hidden" name="business" value="vendedor@loja.com.br" />
+          <input type="hidden" name="return" value="http://loja.com.br/retorno" />
+          <input type="hidden" name="cancel" value="http://loja.com.br/cancelamento" />
+          <input type="hidden" name="notify_url" value="http://loja.com.br/notificacao" />
+       
+          <!--Internacionalização e localização da página de pagamento-->
+          <input type="hidden" name="charset" value="utf-8" />
+          <input type="hidden" name="lc" value="BR" />
+          <input type="hidden" name="country_code" value="BR" />
+          <input type="hidden" name="currency_code" value="BRL" />
+       
+          <!--Informações sobre o produto e seu valor-->
+          <input type="hidden" name="amount" value="172.00" />
+          <input type="hidden" name="item_name" value="Servico" />
+          <input type="hidden" name="quantity" value="1" />
+       
+          <!--Botão para submissão do formulário-->
+          <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" />
+      </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Pronto!</ng-template>
+
     </mat-step>
   </mat-horizontal-stepper>
 </div>

@@ -7,15 +7,11 @@
             </button>
 
             <div fxLayout="row">
-                <button mat-button>
-                    <mat-icon>home</mat-icon>
-                    Categorias
-                </button>
-                <button mat-button>
+                <a mat-button [routerLink]="['/compra']">
                     <mat-icon>local_offer</mat-icon>
                     Ofertas
-                </button>
-                <button mat-button>
+                </a>
+                <button mat-button [routerLink]="['/compra']">
                     <mat-icon>flight</mat-icon>
                     Pacotes
                 </button>
@@ -24,7 +20,7 @@
                 <button mat-icon-button>
                     <mat-icon>help</mat-icon>
                 </button>
-                <button mat-icon-button>
+                <button mat-icon-button [routerLink]="['/compra']">
                     <mat-icon>shopping_cart</mat-icon>
                 </button>
             </div>
@@ -123,6 +119,7 @@
         </div>
     </div>
 
+    <mat-divider></mat-divider>
     <div fxFlex fxLayoutAlign="start center">
             <span class="titulo-section">Pacotes</span>
         </div>
@@ -214,7 +211,7 @@
             </mat-card>
         </div>
     </div>
-
+    <mat-divider></mat-divider>
     <div fxFlex fxLayoutAlign="start center">
             <span class="titulo-section">Avaliações</span>
         </div>

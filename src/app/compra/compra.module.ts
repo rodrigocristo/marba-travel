@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompraComponent } from './compra.component';
-import { MatStepperModule, MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatTabsModule, MatCardModule, MatBadgeModule, MatChipsModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import { MatStepperModule, MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatTabsModule, MatCardModule, MatBadgeModule, MatChipsModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatListModule, MatDividerModule, MatProgressBarModule } from '@angular/material';
 import { CompraRouting } from './compra.routing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +25,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    
   ]
 })
 export class CompraModule { }

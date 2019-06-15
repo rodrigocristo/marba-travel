@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatTabsModule, MatCardModule, MatBadgeModule, MatChipsModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatTabsModule, MatCardModule, MatBadgeModule, MatChipsModule, MatDividerModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -19,7 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatBadgeModule,
     MatChipsModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDividerModule
   ]
 })
 export class HomeModule { }
